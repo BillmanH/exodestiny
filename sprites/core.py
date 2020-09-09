@@ -1,28 +1,78 @@
+# The core of all objects the sprite
 # %%
-class Sprite:
-    def __init__(self, id):
-        self.id = id
+import uuid
 
-    def get_id(self):
-        print(self.id)
+
+class TwoObjectsCannotOccupyTheSameSpaceException(Exception):
+    pass
+
+
+class Sprite:
+    '''
+    The core of all objects is a sprite. 
+    '''
+    _instances = set()
+
+    def __init__(self):
+        self.id = str(uuid.uuid1())
 
 
 class PhysicalObject(Sprite):
-    def __init__(self, id, location):
-        super().__init__(id)
-        self.location = location
+    '''
+    Physical objects have a location, because they exist in space.
+    '''
+
+    def __init__(self, name, type_, location, parent=None):
+        super().__init__()
+        self.parent = parent
+        self.name = name
+        self.type = type_
+        if parent != None:
+            if any([s.location == location for s in parent.children]):
+                print(
+                    f"{[c.name for c in parent.children if c.location == location]} conflicts at that location:{location}")
+                raise ObjectsCannotOccupySameSpaceException
+            else:
+                self.location = location
+        self.children = []
 
 
 class Abstraction(Sprite):
-    def __init__(self, id, bearer):
-        super().__init__(id)
+    '''
+    Abstractions don't exist in physical space, but are bore by annother object.
+    '''
+
+    def __init__(self, bearer):
+        super().__init__()
         self.bearer = bearer
 
 
-# %%
-s = Sprite('1')
+class Universe(PhysicalObject):
+    '''
+    the universe is the core object, all other objects are connected to it.
+    '''
 
-# %%
-a = Abstraction("1", "Carl")
-p = PhysicalObject("2", "ship")
-# %%
+    def __init__(self):
+        super().__init__("the universe", "normal", None, None)
+
+        print("A universe is born!")
+
+
+class Galaxy(PhysicalObject):
+    '''
+    A galaxy is a collection of Stars
+    '''
+
+    def __init__(self, name, type_, location, parent=None):
+        super().__init__(name, type_, location, parent)
+        parent.children.append(self)
+
+    def __repr__(self):
+        return f"<Galaxy {self.type}:{self.name}:{self.id}>"
+
+
+# # %%
+# u = Universe()
+# g = Galaxy('milky way', 'spiral', [0, 0], parent=u)
+
+# # %%
