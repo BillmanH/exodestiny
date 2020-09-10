@@ -34,6 +34,7 @@ class PhysicalObject(Sprite):
                 raise ObjectsCannotOccupySameSpaceException
             else:
                 self.location = location
+                self.parent.children.append(self)
         self.children = []
 
 
@@ -65,7 +66,6 @@ class Galaxy(PhysicalObject):
 
     def __init__(self, name, type_, location, parent=None):
         super().__init__(name, type_, location, parent)
-        parent.children.append(self)
 
     def __repr__(self):
         return f"<Galaxy {self.type}:{self.name}:{self.id}>"
