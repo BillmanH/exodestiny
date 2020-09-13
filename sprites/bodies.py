@@ -30,16 +30,16 @@ class Planet(core.PhysicalObject):
         return f"<Planet {self.type}:{self.name}:{self.id}>"
 
 
-# %%
-u = core.Universe()
-g = core.Galaxy('milky way', 'spiral', [0, 0], u)
-s = Star('sol', 'G', g)
-# %%
-s2 = Star('Alpha Centauri', 'G', g, location=[1, 1])
-s1 = Star('Proxima Centauri', 'G', g, location=[1, 2])
+# # %%
+# u = core.Universe()
+# g = core.Galaxy('milky way', 'spiral', [0, 0], u)
+# s = Star('sol', 'G', g)
+# # %%
+# s2 = Star('Alpha Centauri', 'G', g, location=[1, 1])
+# s1 = Star('Proxima Centauri', 'G', g, location=[1, 2])
 
-# %%
-p = Planet('Earth', 'terrestrial', s, location=[0, 0])
-p2 = Planet('Mars', 'terrestrial', s, location=[0, 1])
+# # %%
+# p = Planet('Earth', 'terrestrial', s, location=[0, 0])
+# p2 = Planet('Mars', 'terrestrial', s, location=[0, 1])
 
-# %%
+# # %%

@@ -1,0 +1,13 @@
+{% load static %}
+<head>
+    <script src="{% static "exodest/d3.min.js" %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "exodest/node.css" %}">
+</head>
+
+<body>
+<svg width="100%" height="100%"></svg>
+</body>
+
+<script>
+    {% include "exodest/solarsystem/node-map.js" %}
+</script>

@@ -8,3 +8,8 @@ from django.http import HttpResponse
 def control(request):
     context = {}
     return render(request, 'exodest/control.html', context)
+
+
+def solarsystem(request):
+    context = {}
+    return render(request, 'exodest/solarsystem/solarsystem.html', context)

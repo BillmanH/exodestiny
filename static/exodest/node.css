@@ -1,0 +1,21 @@
+
+.link {
+    stroke: #aaa;
+  }
+
+.node text {
+stroke:#333;
+}
+
+.node circle{
+stroke:#fff;
+stroke-width:3px;
+fill:#555;
+}
+
+body {
+    text-align: center;
+    font-family: Sans-serif;
+    margin: 0;
+    background: #000016;
+}
