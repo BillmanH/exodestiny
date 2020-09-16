@@ -2,34 +2,45 @@
 import core
 
 
-class Star(core.PhysicalObject):
+class celestialBody(core.PhysicalObject):
     '''
-    Stars are single bodies floating in space
+    Celestial bodies are objects that you would see from a global view of a solar system.
+    '''
+
+    def __init__(self, name, type_, parent, location):
+        super().__init__(name, type_, parent, location)
+        self.orbiting_bodies = []
+
+
+class Star(celestialBody):
+    '''
+    Stars are celestialBodies floating in space
     type_ = O, B, A, F, G, K, and M
     '''
 
-    def __init__(self, name, type_, galaxy, location=[0, 0]):
-        super().__init__(name, type_, location, galaxy)
+    def __init__(self, name, type_, parent, location=[0, 0]):
+        super().__init__(name, type_, location, parent)
         self.orbiting_bodies = []
 
     def __repr__(self):
         return f"<Star {self.type}:{self.name}:{self.id}>"
 
 
-class Planet(core.PhysicalObject):
+class Planet(celestialBody):
     '''
-    Planets are masses that orbit stars
+    Planets are celestialBodies that orbit stars
     type_ = [terrestrial, gas, ice]
     '''
 
-    def __init__(self, name, type_, star, location):
-        super().__init__(name, type_, location, star)
+    def __init__(self, name, type_, parent, location, **kwargs):
+        super().__init__(name, type_, location, parent)
         self.orbiting_bodies = []
 
     def __repr__(self):
         return f"<Planet {self.type}:{self.name}:{self.id}>"
 
 
+# #
 # # %%
 # u = core.Universe()
 # g = core.Galaxy('milky way', 'spiral', [0, 0], u)
@@ -42,4 +53,4 @@ class Planet(core.PhysicalObject):
 # p = Planet('Earth', 'terrestrial', s, location=[0, 0])
 # p2 = Planet('Mars', 'terrestrial', s, location=[0, 1])
 
-# # %%
+# # # %%
