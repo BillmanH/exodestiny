@@ -1,0 +1,12 @@
+planets:
+  Mercury: { "type": "terrestrial" }
+  Venus: { "type": "terrestrial" }
+  Earth: { "type": "terrestrial" }
+  Mars: { "type": "terrestrial" }
+  Ceres: { "type": "terrestrial" }
+  Jupiter: { "type": "gas" }
+  Saturn: { "type": "gas" }
+  Uranus: { "type": "ice" }
+  Neptune: { "type": "ice" }
+  Pluto: { "type": "dwarf" }
+  Eris: { "type": "dwarf" }
