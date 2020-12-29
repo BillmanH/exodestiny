@@ -1,5 +1,5 @@
 # %%
-from sprites import core
+from modules.sprites import core
 
 
 class celestialBody(core.PhysicalObject):
@@ -24,6 +24,15 @@ class Star(celestialBody):
 
     def __repr__(self):
         return f"<Star {self.type}:{self.name}:{self.id}>"
+
+    def get_planet_data(self):
+        """
+        Gather relevant information for the d3.js cosmetic layer
+        """
+        data = [
+            {"name": p.name, "type": p.type, "loc": p.location} for p in self.children
+        ]
+        return data
 
 
 class Planet(celestialBody):

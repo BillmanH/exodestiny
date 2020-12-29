@@ -1,8 +1,9 @@
 #%%
 import numpy as np
 import yaml
-import sprites
+from . import sprites
 import pickle
+import os
 
 #%%
 # Likely use default values in solar system for now, but I might change this later.
@@ -32,11 +33,11 @@ def new_universe(user):
     return u
 
 
-def load_universe(user):
-    u = pickle.load(open("pickles/" + user + "_u.p", "rb"))
+def load_universe(user, root_path="exodest/"):
+    u = pickle.load(open(root_path + "pickles/" + user + "_u.p", "rb"))
     return u
 
 
-def save_universe(u, user):
-    pickle.dump(u, open("pickles/" + user + "_u.p", "wb"))
+def save_universe(u, user, root_path="exodest/"):
+    pickle.dump(u, open(root_path + "pickles/" + user + "_u.p", "wb"))
 

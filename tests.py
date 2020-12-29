@@ -1,6 +1,13 @@
+#%%
 from django.test import TestCase
-from sprites import core, bodies
-import generators
+from modules.sprites import core, bodies
+from modules import generators
+from pprint import pprint
+
+# baseline stuff
+test_world_name = "billmanh"
+
+print(f"using {test_world_name}")
 
 #  The galaxy
 ## Check that plannets can generate.
@@ -15,8 +22,16 @@ print("PLANETS ARE ABLE TO LOAD")
 
 
 # Build a new universe
-u = generators.new_universe("billmanh")
-generators.save_universe(u, "billmanh")
-u = generators.load_universe("billmanh")
+
+u = generators.new_universe(test_world_name)
+# The root path is different when running tests.
+generators.save_universe(u, test_world_name, root_path="")
+u = generators.load_universe(test_world_name, root_path="")
 print("CAN SAVE AND LOAD UNIVERSE")
 
+# solar system screen
+planet_data = u.children[0].children[0].get_planet_data()
+pprint(planet_data)
+
+
+# %%
