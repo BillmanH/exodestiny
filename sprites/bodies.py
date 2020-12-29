@@ -1,7 +1,5 @@
 # %%
 from sprites import core
-import numpy as np
-import yaml
 
 
 class celestialBody(core.PhysicalObject):
@@ -32,6 +30,7 @@ class Planet(celestialBody):
     """
     Planets are celestialBodies that orbit stars
     type_ = [terrestrial, gas, ice]
+    location is expressed in millions of miles
     """
 
     def __init__(self, name, type_, parent, location, **kwargs):

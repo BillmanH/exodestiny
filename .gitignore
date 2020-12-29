@@ -1,2 +1,6 @@
 # Caches:
 *.pyc
+
+
+# Pickles
+pickles/
