@@ -2,7 +2,7 @@
 from django.test import TestCase
 from modules.sprites import core, bodies
 from modules import generators
-from pprint import pprint
+import pprint
 
 # baseline stuff
 test_world_name = "billmanh"
@@ -31,7 +31,7 @@ print("CAN SAVE AND LOAD UNIVERSE")
 
 # solar system screen
 planet_data = u.children[0].children[0].get_planet_data()
-pprint(planet_data)
+pprint.pprint(planet_data)
 
 
 # %%

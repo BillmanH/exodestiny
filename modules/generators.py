@@ -33,11 +33,12 @@ def new_universe(user):
     return u
 
 
-def load_universe(user, root_path="exodest/"):
+def load_universe(user, root_path="home1/exodest/"):
+    d = os.listdir()
     u = pickle.load(open(root_path + "pickles/" + user + "_u.p", "rb"))
     return u
 
 
-def save_universe(u, user, root_path="exodest/"):
+def save_universe(u, user, root_path=""):
     pickle.dump(u, open(root_path + "pickles/" + user + "_u.p", "wb"))
 
