@@ -4,3 +4,12 @@
 
 # Pickles
 pickles/
+
+#Database not used in this repo
+db.sqlite3
+
+#vs code settings
+.vscode*
+
+#settings and sensitive things
+*settings*.*
